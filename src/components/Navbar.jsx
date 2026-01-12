@@ -1,16 +1,25 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+	// const [count, setCount] = useState
+
+	// const handleAdd = () => {
+	// 	setCount (count + 1);
+	// };
+	// const handleSubtract = () =>{
+	// 	setCount (count	- 1);
+	// }
 
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
+				<a className="navbar-brand" href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/The_Simpsons_yellow_logo.svg/960px-The_Simpsons_yellow_logo.svg.png" width="120" height="70"/>
+				</a>
 				<div className="ml-auto">
 					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
+						<button className="btn btn-primary">Favorites <i className="fa-regular fa-heart"></i></button>
 					</Link>
 				</div>
 			</div>
