@@ -1,7 +1,23 @@
 .navbar {
-    background-image: url(https://thesimpsonsapi.com/clouds-bg.jpg);
-    background-position:center;
-    background-size: cover;
+    background-color: rgb(255, 255, 254);
     padding: 1rem;
+    background-position: start;
+}
+
+body{
+    background-image: url(https://thesimpsonsapi.com/clouds-bg.jpg);
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'SimpsonFont';
+    src: url('./Fuentes/SIMPSONFONT DEMO.OTF') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+h1, .footer {
+    font-family: 'SimpsonFont', sans-serif !important;
 }
 

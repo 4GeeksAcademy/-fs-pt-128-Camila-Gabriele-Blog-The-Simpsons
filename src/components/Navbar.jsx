@@ -15,11 +15,13 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<a className="navbar-brand" href="#">
+				<Link to="/">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/The_Simpsons_yellow_logo.svg/960px-The_Simpsons_yellow_logo.svg.png" width="120" height="70"/>
+				</Link>
 				</a>
 				<div className="ml-auto">
 					<Link to="/demo">
-						<button className="btn btn-primary">Favorites <i className="fa-regular fa-heart"></i></button>
+						<button className="btn btn-warning">Favorites <i className="fa-regular fa-heart"></i></button>
 					</Link>
 				</div>
 			</div>

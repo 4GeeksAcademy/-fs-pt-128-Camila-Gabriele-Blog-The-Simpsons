@@ -9,6 +9,8 @@ import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
+import { CardMoreCharacters} from "./pages/CardMoreCharacters";
+import { CardMoreLocations } from "./pages/CardMoreLocations";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,6 +27,9 @@ export const router = createBrowserRouter(
         <Route path= "/" element={<Home />} />
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
         <Route path="/demo" element={<Demo />} />
+        <Route path="/more" element={<CardMoreCharacters />} />
+        <Route path="/morelocation" element={<CardMoreLocations/>} />
+      
       </Route>
     )
 );

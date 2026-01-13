@@ -14,8 +14,9 @@ export const Home = () => {
 	}, [])
 
 	return (
-		<div className="text-center mt-5">
-			<div className="d-flex flex-row overflow-auto py-3 align-items-stretch" style={{ scrollbarWidth: "thin" }}>
+		<div className="container-fluid p-4">
+			<h1 className="d-flex justify-content-start p-3"><strong>Characters</strong></h1>
+			<div className="d-flex flex-row overflow-x-auto gap-3 p-3" style={{ scrollbarWidth: "thin" }}>
 				{
 					store.characters.map(character => {
 						return (
@@ -24,7 +25,8 @@ export const Home = () => {
 					})
 				}
 			</div>
-			<div className="d-flex flex-row overflow-auto py-3 align-items-stretch" style={{ scrollbarWidth: "thin" }}>
+			<h1 className="d-flex justify-content-start p-3 g-3"><strong>Locations</strong></h1>
+			<div className="d-flex flex-row overflow-x-auto gap-3 p-3" style={{ scrollbarWidth: "thin" }}>
 				{
 					store.locations.map(location => {
 						return (
