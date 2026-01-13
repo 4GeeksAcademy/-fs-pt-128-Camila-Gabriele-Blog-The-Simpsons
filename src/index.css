@@ -9,6 +9,10 @@ body{
     background-size: cover;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 @font-face {
     font-family: 'SimpsonFont';
     src: url('./Fuentes/SIMPSONFONT DEMO.OTF') format('opentype');

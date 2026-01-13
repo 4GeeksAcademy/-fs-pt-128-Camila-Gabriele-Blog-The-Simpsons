@@ -3,10 +3,16 @@
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer"
 
+
 export const CardCharacters = ({ character }) => {
 
     const { store, dispatch } = useGlobalReducer()
-
+    const handleFavorites = () => {
+        dispatch({
+            type: "add_favorites",
+            payload: character
+        })
+    }
 
     return (
         <>
@@ -25,7 +31,12 @@ export const CardCharacters = ({ character }) => {
                     <p className="card-text small" style={{ height: "80px" }}>{character.occupation}</p>
                     <div className="d-flex justify-content-between">
                         <Link to="/more">
-                            <button className="btn btn-outline-info">Learn more!</button>
+                            <button
+                                className="btn btn-outline-info"
+                                onClick={handleFavorites}
+                            >
+                                Learn more!
+                            </button>
                         </Link>
                         <button className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
                     </div>

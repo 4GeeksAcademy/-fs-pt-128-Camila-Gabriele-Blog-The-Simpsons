@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Navbar = () => {
-	// const [count, setCount] = useState
-
-	// const handleAdd = () => {
-	// 	setCount (count + 1);
-	// };
-	// const handleSubtract = () =>{
-	// 	setCount (count	- 1);
-	// }
-
+	const { store, dispatch } = useGlobalReducer()
+	
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<a className="navbar-brand" href="#">
-				<Link to="/">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/The_Simpsons_yellow_logo.svg/960px-The_Simpsons_yellow_logo.svg.png" width="120" height="70"/>
-				</Link>
+					<Link to="/">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/The_Simpsons_yellow_logo.svg/960px-The_Simpsons_yellow_logo.svg.png" width="120" height="70" />
+					</Link>
 				</a>
 				<div className="ml-auto">
 					<Link to="/demo">
