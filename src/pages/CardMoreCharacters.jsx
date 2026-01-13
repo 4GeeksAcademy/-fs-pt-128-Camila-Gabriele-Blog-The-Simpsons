@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom"
 import useGlobalReducer from "../hooks/useGlobalReducer"
+import { useEffect } from "react";
 
 export const CardMoreCharacters = (character) => {
 
@@ -10,8 +11,12 @@ export const CardMoreCharacters = (character) => {
       const characterFind = store.character.find(character => { return character.id === Number(id) })
       console.log(characterFind);
       setContact(characterFind)
-
    }
+
+      useEffect(() => {
+         findCharacter();
+      }, [])
+
    return (
       <>
          <div className="card mt-5 p-5 m-5" style={{ maxHeight: "540px" }}>
