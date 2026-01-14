@@ -7,12 +7,12 @@ import useGlobalReducer from "../hooks/useGlobalReducer"
 export const CardCharacters = ({ character }) => {
 
     const { store, dispatch } = useGlobalReducer()
-    const handleFavorites = () => {
-        dispatch({
-            type: "add_favorites",
-            payload: character
-        })
-    }
+    // const handleFavorites = () => {
+    //     dispatch({
+    //         type: "add_favorites",
+    //         payload: character
+    //     })
+    // }
 
     return (
         <>
@@ -26,14 +26,14 @@ export const CardCharacters = ({ character }) => {
                 />
                 <div className="card-body">
                     <h5 className="card-title text-truncate">{character.name}</h5>
-                    <p className="card-text mb-1 small">{character.gender}</p>
-                    <p className="card-text mb-1 small">{character.age ? character.age : "Unknown"}</p>
-                    <p className="card-text small" style={{ height: "80px" }}>{character.occupation}</p>
+                    <p className="card-text mb-1 small"><strong>Gender: </strong>{character.gender}</p>
+                    <p className="card-text mb-1 small"><strong>Age: </strong>{character.age ? character.age : "Unknown"}</p>
+                    <p className="card-text small" style={{ height: "80px" }}><strong>Occupation: </strong>{character.occupation}</p>
                     <div className="d-flex justify-content-between">
-                        <Link to="/more">
+                        <Link to={`/character/${character.id}`}>
                             <button
                                 className="btn btn-outline-info"
-                                onClick={handleFavorites}
+                                // onClick={handleFavorites}
                             >
                                 Learn more!
                             </button>

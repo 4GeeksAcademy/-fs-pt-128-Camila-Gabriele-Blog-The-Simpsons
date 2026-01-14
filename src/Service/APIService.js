@@ -15,3 +15,11 @@ export const getLocations = async (dispatch) =>{
     console.log(data);
     dispatch({ type: "get_locations", payload: data.results })
 }
+
+export const getCharacter = async (id) => {
+    const response = await fetch(`https://thesimpsonsapi.com/api/characters/${id}`);
+    console.log(response);
+
+    const data = await response.json()
+    return data
+}

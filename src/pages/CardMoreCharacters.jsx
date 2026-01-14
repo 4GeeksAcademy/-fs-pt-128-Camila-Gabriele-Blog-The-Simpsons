@@ -1,37 +1,53 @@
-
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer"
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { getCharacter } from "../Service/APIService";
 
-export const CardMoreCharacters = ({ character }) => {
+
+export const CardMoreCharacters = () => {
 
    const { store, dispatch } = useGlobalReducer()
    const { id } = useParams()
-
-   const findCharacter = () => {
-      const characterFind = store.characters.find(character => { return character.id === Number(id) })
-      console.log(characterFind);
-      
+   const [character, setCharacter] = useState({})
+   const getCharacterData = async () => {
+      const characterData = await getCharacter(id)
+      setCharacter(characterData)
    }
 
+   useEffect(() => {
+      getCharacterData()
+   }, [])
 
    return (
       <>
-         <div className="card mt-5 p-5 m-5" style={{ maxHeight: "540px" }}>
+         <div className="card mt-5 p-5 m-5 border-black">
             <div className="row g-0">
                <div className="col-md-4">
-                  <img src={`https://cdn.thesimpsonsapi.com/500/character/${character.id}.webp`} className="img-fluid rounded-start" alt="..." />
+                  <img src={`https://cdn.thesimpsonsapi.com/500/character/${id}.webp`} className="img-fluid rounded-start" alt="..." />
                </div>
                <div className="col-md-8">
                   <div className="card-body">
-                     <h5 className="card-title">{character.name}</h5>
-                     <p className="card-text">{character.birthdate}</p>
-                     <li className="card-text">
-                        {character.phrases}
-                     </li>
+                     <h1 className="card-title">{character.name}</h1>
+                     <p className="card-text"><strong>Gender: </strong>{character.gender}</p>
+                     <p className="card-text"><strong>Age: </strong>{character.age}</p>
+                     <p className="card-text"><strong>Occupation: </strong>{character.occupation}</p>
+                     <p className="card-text"><strong>Phrases: </strong></p>
+                     <ul>
+                        {character.phrases && character.phrases.map((frase, index) => (
+                           <li key={index} className="list-group-item">
+                              ☁️<i>"{frase}"</i>
+                           </li>
+                        ))}
+                     </ul>
                   </div>
                </div>
-               <button type="button" class="btn btn-outline-warning">Back to de home</button>
+               <div className="card-footer bg-white border-0 p-3">
+                  <Link to="/">
+                     <button type="button" className="btn btn-outline-warning w-100">
+                        Back to home
+                     </button>
+                  </Link>
+               </div>
             </div>
          </div>
       </>

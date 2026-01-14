@@ -40,6 +40,7 @@ export default function storeReducer(store, action = {}) {
         ...store,
         locations: action.payload
       }
+  
       // case "add_favorites":
       //   return{
       //     ...store,

@@ -5,6 +5,10 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 export const Navbar = () => {
 	const { store, dispatch } = useGlobalReducer()
 	
+	// const [count, setCount] = useState(0);
+	// const incrementar = () => {
+	// 	setContador(count + 1);
+	// };
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
