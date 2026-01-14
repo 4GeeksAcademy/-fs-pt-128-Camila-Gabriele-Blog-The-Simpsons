@@ -1,21 +1,19 @@
 
 import { Link } from "react-router-dom"
 import useGlobalReducer from "../hooks/useGlobalReducer"
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export const CardMoreCharacters = (character) => {
+export const CardMoreCharacters = ({ character }) => {
 
    const { store, dispatch } = useGlobalReducer()
    const { id } = useParams()
+
    const findCharacter = () => {
-      const characterFind = store.character.find(character => { return character.id === Number(id) })
+      const characterFind = store.characters.find(character => { return character.id === Number(id) })
       console.log(characterFind);
-      setContact(characterFind)
+      
    }
 
-      useEffect(() => {
-         findCharacter();
-      }, [])
 
    return (
       <>

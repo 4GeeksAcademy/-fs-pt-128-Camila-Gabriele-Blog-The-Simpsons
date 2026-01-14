@@ -11,7 +11,7 @@ export const Home = () => {
 	useEffect(() => {
 		getCharacters(dispatch);
 		getLocations(dispatch);
-		findCharacter();
+		// findCharacter();
 	}, [])
 
 	return (
