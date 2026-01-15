@@ -41,11 +41,11 @@ export default function storeReducer(store, action = {}) {
         locations: action.payload
       }
   
-      // case "add_favorites":
-      //   return{
-      //     ...store,
-      //     favorites: [store.favorites, action.payload]
-      //   }
+      case "add_favorites":
+        return{
+          ...store,
+          favorites: [store.favorites, action.payload]
+        }
     default:
       throw Error('Unknown action.');
   }

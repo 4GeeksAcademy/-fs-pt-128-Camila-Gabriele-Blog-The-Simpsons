@@ -23,3 +23,11 @@ export const getCharacter = async (id) => {
     const data = await response.json()
     return data
 }
+
+export const getLocation = async (id) => {
+    const response = await fetch(`https://thesimpsonsapi.com/api/locations/${id}`);
+    console.log(response);
+
+    const data = await response.json()
+    return data
+}

@@ -23,7 +23,7 @@ export const CardLocations = ({ location }) => {
                     <p className="card-text mb-1 small"><strong>Town: </strong>{location.town ? location.town : "Unknown"}</p>
                     <p className="card-text mb-1 small" style={{ height: "70px" }}><strong>Use: </strong>{location.use ? location.use : "Unknown"}</p>
                     <div className="d-flex justify-content-between">
-                        <Link to="/morelocation">
+                        <Link to={`/location/${location.id}`}>
                             <button className="btn btn-outline-info">Learn more!</button>
                         </Link>
                         <button className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
