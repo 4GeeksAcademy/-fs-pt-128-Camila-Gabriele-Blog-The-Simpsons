@@ -20,6 +20,7 @@ export const CardMoreLocations = () => {
                 <img src={`https://cdn.thesimpsonsapi.com/1280/location/${id}.webp`} className="card-img-top" alt="..." />
                 <div className="card-body m-2 p-2">
                     <h1 className="card-title">{location.name}</h1>
+                    <p className="card-text mb-1 small"><strong>Description: </strong>{location.description ? location.description : "Unknown"}</p>
                     <p className="card-text mb-1 small"><strong>Town: </strong>{location.town ? location.town : "Unknown"}</p>
                     <p className="card-text mb-1 small" style={{ height: "70px" }}><strong>Use: </strong>{location.use ? location.use : "Unknown"}</p>
                     <div className="border-0 p-3 d-flex justify-content-center">
