@@ -4,6 +4,13 @@ import useGlobalReducer from "../hooks/useGlobalReducer"
 export const CardLocations = ({ location }) => {
 
     const { store, dispatch } = useGlobalReducer()
+    const isFavoriteLocation = store.favorites.some(fav => fav.id === location.id && !fav.gender);
+    const handleFavoriteClick = () => {
+        dispatch({
+            type: "add_favorites",
+            payload: location
+        });
+    };
 
     return (
         <>
@@ -26,7 +33,12 @@ export const CardLocations = ({ location }) => {
                         <Link to={`/location/${location.id}`}>
                             <button className="btn btn-outline-info">Learn more!</button>
                         </Link>
-                        <button className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
+                        <button
+                            className={`btn ${isFavoriteLocation ? "btn-warning" : "btn-outline-warning"}`}
+                            onClick={handleFavoriteClick}
+                        >
+                            <i className={`${isFavoriteLocation ? "fa-solid" : "fa-regular"} fa-heart`}></i>
+                        </button>
                     </div>
                 </div>
             </div>

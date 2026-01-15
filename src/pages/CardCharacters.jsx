@@ -7,7 +7,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer"
 export const CardCharacters = ({ character }) => {
 
     const { store, dispatch } = useGlobalReducer()
-    const isFavorite = store.favorites.some(fav => fav.id === character.id);
+    const isFavoriteCharacter = store.favorites.some(fav => fav.id === character.id);
     const handleFavoriteClick = () => {
         dispatch({
             type: "add_favorites",
@@ -39,10 +39,10 @@ export const CardCharacters = ({ character }) => {
                             </button>
                         </Link>
                         <button
-                            className={`btn ${isFavorite ? "btn-warning" : "btn-outline-warning"}`}
+                            className={`btn ${isFavoriteCharacter ? "btn-warning" : "btn-outline-warning"}`}
                             onClick={handleFavoriteClick}
                         >
-                            <i className={`${isFavorite ? "fa-solid" : "fa-regular"} fa-heart`}></i>
+                            <i className={`${isFavoriteCharacter ? "fa-solid" : "fa-regular"} fa-heart`}></i>
                         </button>
                     </div>
                 </div>

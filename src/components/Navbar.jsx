@@ -24,15 +24,14 @@ export const Navbar = ({favorite}) => {
 						{store.favorites.length === 0 ? (
 							<li><span className="dropdown-item-text text-muted">No hay favoritos</span></li>
 						) : (
-								store.favorites.map((favorite) => (
-								<li key={favorite.id} className="d-flex align-items-center dropdown-item">
-										<Link to={`/character/${favorite.id}`} className="text-decoration-none text-dark flex-grow-1">
-										{favorite.name}
+								store.favorites.map((item) => (
+									<li key={item.id} className="d-flex align-items-center dropdown-item">
+										<Link to={item.gender ? `/character/${item.id}` : `/location/${item.id}`} className="text-decoration-none text-dark flex-grow-1">
+										{item.name}
 									</Link>
 									<i
 										className="fa-solid fa-trash ms-2 text-danger"
-										style={{ cursor: "pointer" }}
-											onClick={() => dispatch({ type: "delete_favorites", payload: favorite.id })}
+											onClick={() => dispatch({ type: "delete_favorites", payload: item.id })}
 									></i>
 								</li>
 							))
