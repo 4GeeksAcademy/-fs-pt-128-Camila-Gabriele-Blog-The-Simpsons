@@ -7,7 +7,7 @@ export const CardLocations = ({ location }) => {
 
     return (
         <>
-            <div className="card shadow-sm card shadow-sm border border-black" style={{ minWidth: "18rem", maxWidth: "18rem", height: "550px", overflow: "hidden" }}>
+            <div className="card shadow-sm card shadow-sm border border-black" style={{ minWidth: "17rem", maxWidth: "17rem", height: "450px", overflow: "hidden" }}>
                 <img
                     src={`https://cdn.thesimpsonsapi.com/1280/location/${location.id}.webp`}
                     style={{
@@ -21,7 +21,7 @@ export const CardLocations = ({ location }) => {
                 <div className="card-body">
                     <h5 className="card-title text-truncate">{location.name}</h5>
                     <p className="card-text mb-1 small"><strong>Town: </strong>{location.town ? location.town : "Unknown"}</p>
-                    <p className="card-text mb-1 small" style={{ height: "70px" }}><strong>Use: </strong>{location.use ? location.use : "Unknown"}</p>
+                    <p className="card-text mb-1 small" style={{ height: "40px" }}><strong>Use: </strong>{location.use ? location.use : "Unknown"}</p>
                     <div className="d-flex justify-content-between">
                         <Link to={`/location/${location.id}`}>
                             <button className="btn btn-outline-info">Learn more!</button>
