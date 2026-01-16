@@ -9,12 +9,13 @@ export const CardCharacters = ({ character }) => {
     const { store, dispatch } = useGlobalReducer()
     const isFavoriteCharacter = store.favorites.some(fav => fav.id === character.id);
     const handleFavoriteClick = () => {
+        if(!isFavoriteCharacter){
         dispatch({
             type: "add_favorites",
             payload: character,
         });
-    };
-    
+    }
+    }
     return (
         <>
             <div className="card shadow-sm border border-black" style={{ minWidth: "18rem", maxWidth: "18rem", height: "550px" }}>

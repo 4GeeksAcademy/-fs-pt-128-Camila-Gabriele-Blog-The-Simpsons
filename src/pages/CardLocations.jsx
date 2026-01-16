@@ -6,12 +6,13 @@ export const CardLocations = ({ location }) => {
     const { store, dispatch } = useGlobalReducer()
     const isFavoriteLocation = store.buttonFavorites.some(fav => fav.id === location.id);
     const handleFavoriteClick = () => {
-        dispatch({
-            type: "add_favorites_button",
-            payload: location,
-        });
-    };
-
+        if (!isFavoriteLocation) {
+            dispatch({
+                type: "add_favorites_button",
+                payload: location,
+            });
+        };
+    }
     return (
         <>
             <div className="card shadow-sm card shadow-sm border border-black" style={{ minWidth: "17rem", maxWidth: "17rem", height: "450px", overflow: "hidden" }}>
