@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
-export const Navbar = ({favorite}) => {
+export const Navbar = ({ favorite }) => {
 	const { store, dispatch } = useGlobalReducer()
 
 	// const [count, setCount] = useState(0);
@@ -18,20 +18,39 @@ export const Navbar = ({favorite}) => {
 
 				<div className="dropdown ms-auto">
 					<button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">
-						Favoritos ({store.favorites.length})
+						Favoritos ({store.favorites.length + store.buttonFavorites.length})
 					</button>
+
+
 					<ul className="dropdown-menu dropdown-menu-end">
+						<li> <a className="titulo dropdown-item">Characters</a></li>
 						{store.favorites.length === 0 ? (
 							<li><span className="dropdown-item-text text-muted">No hay favoritos</span></li>
 						) : (
-								store.favorites.map((item) => (
-									<li key={item.id} className="d-flex align-items-center dropdown-item">
-										<Link to={item.gender ? `/character/${item.id}` : `/location/${item.id}`} className="text-decoration-none text-dark flex-grow-1">
-										{item.name}
+							store.favorites.map((favorite) => (
+								<li key={favorite.id} className="d-flex align-items-center dropdown-item">
+									<Link to={`/character/${favorite.id}`} className="text-decoration-none text-dark flex-grow-1">
+										{favorite.name}
 									</Link>
 									<i
 										className="fa-solid fa-trash ms-2 text-danger"
-											onClick={() => dispatch({ type: "delete_favorites", payload: item.id })}
+										onClick={() => dispatch({ type: "delete_favorites", payload: favorite.id })}
+									></i>
+								</li>
+							))
+						)}
+						<li> <a className="titulo dropdown-item">Locations</a></li>
+						{store.buttonFavorites.length === 0 ? (
+							<li><span className="dropdown-item-text text-muted">No hay favoritos</span></li>
+						) : (
+							store.buttonFavorites.map((location) => (
+								<li key={location.id} className="d-flex align-items-center dropdown-item">
+									<Link to={`/location/${location.id}`} className="text-decoration-none text-dark flex-grow-1">
+										{location.name}
+									</Link>
+									<i
+										className="fa-solid fa-trash ms-2 text-danger"
+										onClick={() => dispatch({ type: "delete_favorites_button", payload: location.id })}
 									></i>
 								</li>
 							))

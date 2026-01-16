@@ -21,7 +21,7 @@ body::-webkit-scrollbar {
 }
 
 
-h1, .footer {
+h1, .footer , .titulo{
     font-family: 'SimpsonFont', sans-serif !important;
 }
 

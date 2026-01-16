@@ -4,11 +4,11 @@ import useGlobalReducer from "../hooks/useGlobalReducer"
 export const CardLocations = ({ location }) => {
 
     const { store, dispatch } = useGlobalReducer()
-    const isFavoriteLocation = store.favorites.some(fav => fav.id === location.id && !fav.gender);
+    const isFavoriteLocation = store.buttonFavorites.some(fav => fav.id === location.id);
     const handleFavoriteClick = () => {
         dispatch({
-            type: "add_favorites",
-            payload: location
+            type: "add_favorites_button",
+            payload: location,
         });
     };
 

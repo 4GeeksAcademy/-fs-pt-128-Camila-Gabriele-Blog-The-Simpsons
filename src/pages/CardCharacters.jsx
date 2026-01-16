@@ -11,10 +11,10 @@ export const CardCharacters = ({ character }) => {
     const handleFavoriteClick = () => {
         dispatch({
             type: "add_favorites",
-            payload: character
+            payload: character,
         });
     };
-  
+    
     return (
         <>
             <div className="card shadow-sm border border-black" style={{ minWidth: "18rem", maxWidth: "18rem", height: "550px" }}>
